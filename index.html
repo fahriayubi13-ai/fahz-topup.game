@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAHZ Topup Diamond FF</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #B2B2B2; /* Abu-abu asap */
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Animasi Welcome */
+        .welcome-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #B2B2B2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            animation: fadeOut 3s forwards;
+        }
+
+        .welcome-text {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #222;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            70% { opacity: 1; }
+            100% { opacity: 0; pointer-events: none; }
+        }
+
+        /* Judul */
+        .header {
+            text-align: center;
+            margin: 20px 0 40px;
+        }
+
+        .fahz-brand {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .main-title {
+            font-size: 1.5rem;
+            color: #2d2d2d;
+            font-weight: bold;
+        }
+
+        /* Grid Paket — memanjang ke samping */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .paket-card {
+            background-color: #DCDCDC;
+            border-radius: 12px;
+            padding: 15px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .paket-card:hover {
+            transform: translateY(-5px);
+            border-color: #444;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .dm {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #111;
+            margin-bottom: 5px;
+        }
+
+        .harga {
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* Modal Pesan */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 90%;
+        }
+
+        .modal-content p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .modal-content a {
+            color: #25D366;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-decoration: none;
+        }
+
+        .close-btn {
+            margin-top: 20px;
+            padding: 10px 25px;
+            background-color: #555;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Layar Selamat Datang -->
+    <div class="welcome-overlay">
+        <h1 class="welcome-text">Welcome</h1>
+    </div>
+
+    <!-- Konten Utama -->
+    <div class="header">
+        <h2 class="fahz-brand">FAHZ</h2>
+        <h1 class="main-title">FAHZ OPEN TOP UP DIAMOND FREE FIRE 😘</h1>
+    </div>
+
+    <!-- Daftar Paket -->
+    <div class="grid-container">
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">5 DM</div>
+            <div class="harga">2K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">10 DM</div>
+            <div class="harga">3K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">12 DM</div>
+            <div class="harga">2.900P</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">20 DM</div>
+            <div class="harga">5K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">25 DM</div>
+            <div class="harga">5.900P</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">30 DM</div>
+            <div class="harga">7K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">40 DM</div>
+            <div class="harga">7.900P</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">50 DM</div>
+            <div class="harga">9K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">70 DM</div>
+            <div class="harga">9.990P</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">80 DM</div>
+            <div class="harga">10K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">100 DM</div>
+            <div class="harga">12.970P</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">120 DM</div>
+            <div class="harga">16.500P</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">150 DM</div>
+            <div class="harga">20K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">160 DM</div>
+            <div class="harga">22K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">210 DM</div>
+            <div class="harga">26K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">280 DM</div>
+            <div class="harga">35K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">355 DM</div>
+            <div class="harga">43K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">405 DM</div>
+            <div class="harga">49K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">425 DM</div>
+            <div class="harga">52K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">475 DM</div>
+            <div class="harga">59K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">500 DM</div>
+            <div class="harga">62K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">565 DM</div>
+            <div class="harga">69K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">635 DM</div>
+            <div class="harga">78K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">720 DM</div>
+            <div class="harga">85K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">770 DM</div>
+            <div class="harga">93K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">860 DM</div>
+            <div class="harga">106K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">930 DM</div>
+            <div class="harga">110K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">1000 DM</div>
+            <div class="harga">118K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">1075 DM</div>
+            <div class="harga">128K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">1450 DM</div>
+            <div class="harga">169K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">2000 DM</div>
+            <div class="harga">243K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">2180 DM</div>
+            <div class="harga">248K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">2280 DM</div>
+            <div class="harga">274K</div>
+        </div>
+        <div class="paket-card" onclick="bukaModal()">
+            <div class="dm">2355 DM</div>
+            <div class="harga">285K</div>
+        </div>
+    </div>
+
+    <!-- Modal Pesan -->
+    <div id="pesanModal" class="modal">
+        <div class="modal-content">
+            <p>Silahkan ke nomor di bawah untuk memesan</p>
+            <a href="https://wa.me/6283175871548" target="_blank">wa.me/6283175871548</a>
+            <br><br>
+            <button class="close-btn" onclick="tutupModal()">Tutup</button>
+        </div>
+    </div>
+
+    <script>
+        function bukaModal() {
+            document.getElementById('pesanModal').style.display = 'flex';
+        }
+        function tutupModal() {
+            document.getElementById('pesanModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
